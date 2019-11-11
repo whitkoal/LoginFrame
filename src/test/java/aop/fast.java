@@ -40,7 +40,6 @@ public class fast {
 
     public static void sort(int[] arr) {
         int p = 0;
-
         int t = arr.length - 1;
         int mid = arr.length / 2;
         while (p + 1 != t) {
