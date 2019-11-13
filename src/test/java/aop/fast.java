@@ -36,7 +36,6 @@ public class fast {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
-
     }
 
     public static void sort(int[] arr) {
