@@ -35,11 +35,11 @@ public class fast {
     static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
-
         arr[j] = temp;
     }
 
     public static void sort(int[] arr) {
+
         int p = 0;
         int t = arr.length - 1;
         int mid = arr.length / 2;
