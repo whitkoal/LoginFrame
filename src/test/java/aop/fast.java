@@ -51,7 +51,6 @@ public class fast {
                 p++;
             } else if (arr[t] >= arr[mid]) {
                 t--;
-
             } else {
                 p++;
                 t--;
