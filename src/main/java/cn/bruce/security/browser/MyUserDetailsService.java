@@ -30,6 +30,10 @@ public class MyUserDetailsService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(
                 username,
                 user.getPassword(),
+                user.isEnabled(),
+                user.isAccountNonExpired(),
+                user.isCredentialsNonExpired(),
+                user.isAccountNonLocked(),
                 AuthorityUtils.commaSeparatedStringToAuthorityList(user.getStore()));
     }
 }

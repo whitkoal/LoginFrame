@@ -12,9 +12,9 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureClobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+//        auth
+//                .inMemoryAuthentication()
+//                .withUser("user").password("password").roles("USER");
         auth
                 .inMemoryAuthentication().passwordEncoder(new MyPasswordEncoder())
                 .withUser("admin").password("123456").roles("USER", "ADMIN");
