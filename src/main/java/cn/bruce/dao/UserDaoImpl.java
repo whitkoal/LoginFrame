@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -68,4 +67,5 @@ public class UserDaoImpl implements UserDao {
     public User getUserByName(String username) {
         return mongoTemplate.findOne(new Query(Criteria.where("name").is(username)), User.class);
     }
+
 }
