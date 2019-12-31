@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:root@121.36.39.114:27018/mylib?authSource=admin&authMechanism=SCRAM-SHA-1
+  application:
+    name: mylib
+server:
+  port: 8080
