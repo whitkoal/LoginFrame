@@ -133,6 +133,11 @@ public class User implements UserDetails, Serializable {
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", store='" + store + '\'' +
+                ", authorities=" + authorities +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", enabled=" + enabled +
                 '}';
     }
 }

@@ -38,7 +38,6 @@ class UserControllerTest {
     }
 
     @Test
-    @RequestMapping(value = "insert")
     public String insert() {
         // mockMvc.perform(MockMvcRequestBuilders.get("/user/insert"))
                 
