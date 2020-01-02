@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49289fc7-d96c-4c06-9d38-6d7f7e73ade1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/bruce/service/ImageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/bruce/serviceImpl/ImageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/cn/bruce/dao/UserDaoImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mylib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mylib.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bruce/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bruce/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/cn/bruce/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cn/bruce/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/mongoConnection/MongoConnectTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bruce/controller/ImagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bruce/controller/ImagesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bruce/dao/ImageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bruce/dao/ImageDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bruce/dao/ImageDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bruce/dao/ImageDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bruce/service/ImagesService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bruce/service/ImagesServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bruce/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/bruce/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/bruce/service/Userlogin.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cn/bruce/dao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bruce/dao/UserDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cn/bruce/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/bruce/pojo/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/bruce/service/Userlogin.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/cn/bruce/controller/UserControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/cn/bruce/controller/UserControllerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/mongoConnection/MongoConnectTest.class" beforeDir="false" />
     </list>
@@ -45,7 +52,7 @@
     <option name="defaultAccountId" value="13fae90f-7aed-4429-be6f-a36b558b9246" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response50.json" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response11.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="JavaeeView">
     <option name="showModules" value="false" />
@@ -80,7 +87,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/cn/bruce" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion.Network" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -97,6 +104,241 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="02B5D620F41E60026AED69A1CE9E0792" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="Login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_csrf" />
+                <option name="value" value="e7d6f413-2ae5-40ae-9887-32c3c51e5b78" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="02B5D620F41E60026AED69A1CE9E0792" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="login/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_csrf" />
+                <option name="value" value="e7d6f413-2ae5-40ae-9887-32c3c51e5b78" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="02B5D620F41E60026AED69A1CE9E0792" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_csrf" />
+                <option name="value" value="e7d6f413-2ae5-40ae-9887-32c3c51e5b78" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="02B5D620F41E60026AED69A1CE9E0792" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_csrf" />
+                <option name="value" value="e7d6f413-2ae5-40ae-9887-32c3c51e5b78" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="02B5D620F41E60026AED69A1CE9E0792" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="bruce" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="_csrf" />
+                <option name="value" value="e7d6f413-2ae5-40ae-9887-32c3c51e5b78" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="biscuits">
             <list>
@@ -668,7 +910,8 @@
       <workItem from="1577773871646" duration="6613000" />
       <workItem from="1577784322465" duration="415000" />
       <workItem from="1577784904419" duration="6299000" />
-      <workItem from="1577854970012" duration="8290000" />
+      <workItem from="1577854970012" duration="10086000" />
+      <workItem from="1577949578616" duration="12064000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1577195123778</created>
@@ -719,7 +962,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577799464587</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="4">
+      <created>1577864935482</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1577864935482</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -745,17 +995,18 @@
     <MESSAGE value="1" />
     <MESSAGE value="2" />
     <MESSAGE value="3" />
-    <option name="LAST_COMMIT_MESSAGE" value="3" />
+    <MESSAGE value="4" />
+    <option name="LAST_COMMIT_MESSAGE" value="4" />
   </component>
   <component name="WindowStateProjectService">
     <state x="459" y="76" key="#Notifications" timestamp="1577193216298">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="459" y="76" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1577193216298" />
-    <state x="1000" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1577858527182">
+    <state x="1000" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1577966790079">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="1000" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1577858527182" />
+    <state x="1000" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1577966790079" />
     <state x="553" y="279" width="429" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1577236412339">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -764,10 +1015,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="269" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.1536.824@0.0.1536.824" timestamp="1577856210293" />
-    <state x="385" y="12" key="CommitChangelistDialog2" timestamp="1577799460516">
+    <state x="385" y="12" key="CommitChangelistDialog2" timestamp="1577970541138">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="385" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577799460516" />
+    <state x="385" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577970541138" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1577782689480">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -788,38 +1039,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="739" y="123" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577193530788" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1577863659155">
+    <state width="822" height="208" key="GridCell.Tab.0.bottom" timestamp="1577966000951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577863659155" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1577863659155">
+    <state width="822" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577966000951" />
+    <state width="822" height="208" key="GridCell.Tab.0.center" timestamp="1577966000951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577863659155" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1577863659155">
+    <state width="822" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577966000951" />
+    <state width="822" height="208" key="GridCell.Tab.0.left" timestamp="1577966000951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577863659155" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1577863659155">
+    <state width="822" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577966000951" />
+    <state width="822" height="208" key="GridCell.Tab.0.right" timestamp="1577966000951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577863659155" />
-    <state width="1493" height="208" key="GridCell.Tab.1.bottom" timestamp="1577863659155">
+    <state width="822" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577966000951" />
+    <state width="822" height="208" key="GridCell.Tab.1.bottom" timestamp="1577966000951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577863659155" />
-    <state width="1493" height="208" key="GridCell.Tab.1.center" timestamp="1577863659155">
+    <state width="822" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577966000951" />
+    <state width="822" height="208" key="GridCell.Tab.1.center" timestamp="1577966000951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1577863659155" />
-    <state width="1493" height="208" key="GridCell.Tab.1.left" timestamp="1577863659155">
+    <state width="822" height="208" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1577966000951" />
+    <state width="822" height="208" key="GridCell.Tab.1.left" timestamp="1577966000951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1577863659155" />
-    <state width="1493" height="208" key="GridCell.Tab.1.right" timestamp="1577863659155">
+    <state width="822" height="208" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1577966000951" />
+    <state width="822" height="208" key="GridCell.Tab.1.right" timestamp="1577966000951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1577863659155" />
+    <state width="822" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1577966000951" />
     <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1577862416931">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -836,10 +1087,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1577862416931" />
-    <state x="183" y="64" key="SettingsEditor" timestamp="1577799033021">
+    <state x="352" y="79" key="SettingsEditor" timestamp="1577866164997">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="183" y="64" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1577799033021" />
+    <state x="352" y="79" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1577866164997" />
     <state width="242" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1576928817896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -848,10 +1099,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="490" y="154" width="540" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1576117418631" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1577864871130">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1577867087788">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577864871130" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577867087788" />
     <state x="565" y="193" key="chooseDestDirectoryDialog" timestamp="1576070886782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -860,10 +1111,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1577194432471" />
-    <state x="461" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1577855185428">
+    <state x="461" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1577949762787">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="461" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1577855185428" />
+    <state x="461" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1577949762787" />
     <state x="532" y="82" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1577858512245">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -876,10 +1127,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="571" y="291" key="git4idea.rebase.GitRebaseDialog/0.0.1536.824@0.0.1536.824" timestamp="1577783959737" />
-    <state x="723" y="102" width="672" height="678" key="search.everywhere.popup" timestamp="1577862010045">
+    <state x="722" y="102" width="672" height="678" key="search.everywhere.popup" timestamp="1577969792667">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="723" y="102" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1577862010045" />
+    <state x="722" y="102" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1577969792667" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
