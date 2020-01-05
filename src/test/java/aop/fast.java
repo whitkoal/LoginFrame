@@ -52,7 +52,6 @@ public class fast {
             } else if (arr[t] >= arr[mid]) {
                 t--;
             } else {
-
                 p++;
                 t--;
             }
