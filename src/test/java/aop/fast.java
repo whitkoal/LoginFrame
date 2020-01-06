@@ -54,6 +54,7 @@ public class fast {
             } else {
                 p++;
                 t--;
+
             }
 
         }
