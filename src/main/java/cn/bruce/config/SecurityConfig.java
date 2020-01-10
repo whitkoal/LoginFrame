@@ -23,7 +23,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .formLogin()
+                .loginPage("/authentication/require")
+                .loginProcessingUrl("/authentication/form") // 设置登录请求提交的数据与 UsernamePasswordAuthenticationFilter 过滤器的映射
+                .and()
                 .authorizeRequests()
+                .antMatchers("/authentication/require").permitAll()
                 .antMatchers("/publicResources/", "/signup", "/about").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
@@ -31,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .and()
+                .csrf().disable()
                 .httpBasic();
         http
                 .logout()
