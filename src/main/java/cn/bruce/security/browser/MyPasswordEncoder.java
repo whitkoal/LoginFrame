@@ -3,6 +3,9 @@ package cn.bruce.security.browser;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+/**
+ * 密码加密在这里处理
+ */
 @Component
 public class MyPasswordEncoder implements PasswordEncoder {
     @Override
