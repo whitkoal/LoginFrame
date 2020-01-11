@@ -6,3 +6,6 @@ spring:
     name: mylib
 server:
   port: 8080
+
+mylib.security.browser.loginPage = /demo-signIn.html
+
