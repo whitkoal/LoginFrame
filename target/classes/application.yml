@@ -6,3 +6,15 @@ spring:
     name: mylib
 server:
   port: 8080
+
+mylib:
+  security:
+# 默认登陆成功页面
+#    browser:
+#      loginPage: /demo-signIn.html
+# 登陆成功返回方式 ，转向或JSON形式返回
+    browser:
+        LoginType: REDIRECT
+
+
+
