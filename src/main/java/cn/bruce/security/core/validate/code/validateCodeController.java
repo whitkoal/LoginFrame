@@ -14,7 +14,7 @@ import java.util.Random;
 @RestController
 public class validateCodeController {
 
-    private static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
+    protected static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
 
     @GetMapping("/code/image")
     public void createCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -24,6 +24,11 @@ public class validateCodeController {
         ImageIO.write(imageCode.getImage(), "JPEG", response.getOutputStream());
     }
 
+    /**
+     * 生成图片验证码。
+     * @param request
+     * @return
+     */
     private ImageCode createImageCode(HttpServletRequest request) {
         int width = 67;
         int height = 23;
@@ -56,7 +61,7 @@ public class validateCodeController {
         graphics.dispose();
 
 
-        return new ImageCode(image, sRand, 60);
+        return new ImageCode(image, sRand, 5);
     }
 
     /**

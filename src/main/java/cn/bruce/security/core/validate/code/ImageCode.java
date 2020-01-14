@@ -44,4 +44,12 @@ public class ImageCode {
     public void setExpireTime(LocalDateTime expireTime) {
         this.expireTime = expireTime;
     }
+
+    /**
+     * 验证码是否已经过期。
+     * @return
+     */
+    public boolean isExpired(){
+        return LocalDateTime.now().isAfter(expireTime);
+    }
 }
