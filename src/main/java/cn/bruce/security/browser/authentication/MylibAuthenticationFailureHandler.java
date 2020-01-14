@@ -1,5 +1,6 @@
 package cn.bruce.security.browser.authentication;
 
+import cn.bruce.security.browser.support.SimpleResponse;
 import cn.bruce.security.core.properties.LoginType;
 import cn.bruce.security.core.properties.SecurityProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,7 +43,7 @@ public class MylibAuthenticationFailureHandler extends SimpleUrlAuthenticationFa
             // 返回登陆错误状态码（500）
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write(objectMapper.writeValueAsString(exception));
+            response.getWriter().write(objectMapper.writeValueAsString(new SimpleResponse(exception.getMessage())));
         }else{
             super.onAuthenticationFailure(request, response, exception);
         }

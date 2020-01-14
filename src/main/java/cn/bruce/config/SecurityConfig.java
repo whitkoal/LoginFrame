@@ -1,14 +1,16 @@
 package cn.bruce.config;
 
 import cn.bruce.security.browser.MyPasswordEncoder;
+import cn.bruce.security.browser.authentication.MylibAuthenticationFailureHandler;
+import cn.bruce.security.browser.authentication.MylibAuthenticationSuccessHandler;
 import cn.bruce.security.core.properties.SecurityProperties;
+import cn.bruce.security.core.validate.code.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -19,16 +21,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     // 注入登陆成功处理器，名字一样就能注入进来
     @Autowired
-    private AuthenticationSuccessHandler mylibAuthenticationSuccessHandler;
+    private MylibAuthenticationSuccessHandler mylibAuthenticationSuccessHandler;
 
     // 注入登陆失败处理器
     @Autowired
-    private AuthenticationFailureHandler mylibAuthenticationFailureHandler;
+    private MylibAuthenticationFailureHandler mylibAuthenticationFailureHandler;
 
     public void configureClobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser("user").password("password").roles("USER");
+
         auth
                 .inMemoryAuthentication().passwordEncoder(new MyPasswordEncoder())
                 .withUser("admin").password("123456").roles("USER", "ADMIN");
@@ -36,7 +36,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+        validateCodeFilter.setAuthenticationFailureHandler(mylibAuthenticationFailureHandler);
+
         http
+                .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
                 .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form") // 设置登录请求提交的数据与 UsernamePasswordAuthenticationFilter 过滤器的映射
