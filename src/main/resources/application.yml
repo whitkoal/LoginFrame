@@ -13,8 +13,8 @@ mylib:
 #    browser:
 #      loginPage: /demo-signIn.html
 # 登陆成功返回方式 ，转向或JSON形式返回
-    browser:
-        LoginType: REDIRECT
+#    browser:
+#        LoginType: REDIRECT
 
 
 
