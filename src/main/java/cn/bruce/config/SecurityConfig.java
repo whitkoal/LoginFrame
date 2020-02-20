@@ -1,16 +1,17 @@
 package cn.bruce.config;
 
-import cn.bruce.security.browser.MyPasswordEncoder;
 import cn.bruce.security.browser.authentication.MylibAuthenticationFailureHandler;
 import cn.bruce.security.browser.authentication.MylibAuthenticationSuccessHandler;
 import cn.bruce.security.core.properties.SecurityProperties;
 import cn.bruce.security.core.validate.code.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -27,12 +28,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MylibAuthenticationFailureHandler mylibAuthenticationFailureHandler;
 
-    public void configureClobal(AuthenticationManagerBuilder auth) throws Exception {
+    // 记住我功能的用户信息存储数据源
+//    @Autowired
+//    private DataSource dataSource;
 
-        auth
-                .inMemoryAuthentication().passwordEncoder(new MyPasswordEncoder())
-                .withUser("admin").password("123456").roles("USER", "ADMIN");
-    }
+    // 记住用户登录信息功能的配置
+//    @Bean
+//    public PersistentTokenRepository persistentTokenRepository() {
+//
+//        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+//        tokenRepository.setCreateTableOnStartup(true);
+//        return tokenRepository;
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -51,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(mylibAuthenticationFailureHandler) // 登陆失败处理器
                 .and()
                 .authorizeRequests()
-                .antMatchers("/authentication/require", securityProperties.getBrowser().getLoginPage(), "/code/image").permitAll()
+                .antMatchers("/authentication/require", securityProperties.getBrowser().getLoginPage(), "/code/*").permitAll()
                 .antMatchers("/publicResources/", "/signup", "/about").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")

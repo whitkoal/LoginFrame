@@ -44,9 +44,11 @@ public class ImagesController {
         return "";
     }
 
+
     @GetMapping(produces = MediaType.IMAGE_JPEG_VALUE, value = "get")
     public byte[] getImage() {
         FileInputStream inputStream = imageService.getImage();
+        System.out.println("inputstream========" + inputStream);
         byte[] bytes;
         try {
              bytes = new byte[inputStream.available()];

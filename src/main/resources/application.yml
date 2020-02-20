@@ -18,10 +18,10 @@ mylib:
 # 图片验证码长度，默认为4位
     code:
       image:
-        length: 6
-        height: 50
-        width: 100
+        height: 20
+        width: 20
         url: /user,/user/*
+        length: 4
 
 
 

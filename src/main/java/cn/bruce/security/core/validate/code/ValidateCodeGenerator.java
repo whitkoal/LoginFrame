@@ -9,5 +9,5 @@ public interface ValidateCodeGenerator {
      * @param request
      * @return
      */
-    public ImageCode createImageCode(HttpServletRequest request);
+    public ValidateCode generate(HttpServletRequest request);
 }

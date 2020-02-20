@@ -4,6 +4,7 @@ import cn.bruce.dao.ImageDao;
 import cn.bruce.service.ImageService;
 import com.mongodb.client.gridfs.GridFSFindIterable;
 import com.mongodb.client.gridfs.model.GridFSFile;
+import com.mongodb.gridfs.GridFSDBFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,8 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public FileInputStream getImage() {
-        GridFSFile file = imageDao.findFilesInGridFs();
-        return null;
+        GridFSDBFile file = imageDao.retrieveFileOne("","");
+        System.out.println("file========"+file);
+        return (FileInputStream) file.getInputStream();
     }
 }

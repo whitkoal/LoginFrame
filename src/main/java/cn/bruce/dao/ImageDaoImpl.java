@@ -1,8 +1,11 @@
 package cn.bruce.dao;
 
+import com.mongodb.DB;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.gridfs.GridFSFindIterable;
 import com.mongodb.client.gridfs.model.GridFSFile;
+import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -39,9 +42,24 @@ public class ImageDaoImpl implements ImageDao {
     public GridFSFile findFilesInGridFs() {
         GridFSFindIterable gridFSFiles = operations.find(query(whereFilename().is("filename.txt")));
         MongoCursor<GridFSFile> iterator = gridFSFiles.iterator();
-
         GridFSFile testImage = operations.findOne(query(whereFilename().is("testImage")));
         return testImage;
+    }
+
+    @Override
+    public GridFSDBFile retrieveFileOne(String collection, String filename) {
+        try {
+            DB db = (DB)mongoTemplate.getDb();
+            // 获取fs的根节点
+            GridFS gridFS = new GridFS(db);
+            GridFSDBFile fsdbFile = gridFS.findOne("testImage");
+            if(fsdbFile != null){
+                return fsdbFile;
+            }
+        }catch (Exception e){
+
+        }
+        return null;
     }
 
 }

@@ -1,14 +1,17 @@
-package cn.bruce.security.core.validate.code;
+package cn.bruce.security.core.validate.code.image;
 
 import cn.bruce.security.core.properties.SecurityProperties;
+import cn.bruce.security.core.validate.code.ValidateCodeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+/**
+ * 图片验证码生成器，继承与验证码生成器
+ */
 public class ImageCodeGenerator implements ValidateCodeGenerator {
 
     @Autowired
@@ -18,9 +21,9 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
      * 生成图片验证码。
      *
      * @param request
-     * @return
+     * @return ImageCode
      */
-    public ImageCode createImageCode(HttpServletRequest request) {
+    public ImageCode generate(HttpServletRequest request) {
         int width;
         int height;
         String widthInRequest = request.getParameter("width");
@@ -28,8 +31,9 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
             width = Integer.parseInt(widthInRequest);
         } else {
             width = securityProperties.getCode().getImage().getWidth();
+            System.out.println(width);
         }
-        String heightInRequest = request.getParameter("width");
+        String heightInRequest = request.getParameter("height");
         if (heightInRequest != null && heightInRequest != "") {
             height = Integer.parseInt(heightInRequest);
         } else {
@@ -62,7 +66,6 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
         }
 
         graphics.dispose();
-
 
         return new ImageCode(image, sRand, securityProperties.getCode().getImage().getExpireIn());
     }
