@@ -68,4 +68,9 @@ public class UserDaoImpl implements UserDao {
         return mongoTemplate.findOne(new Query(Criteria.where("name").is(username)), User.class);
     }
 
+    @Override
+    public User getUserByMobile(String mobile) {
+        return mongoTemplate.findOne(new Query(Criteria.where("mobile").is(mobile)), User.class);
+    }
+
 }

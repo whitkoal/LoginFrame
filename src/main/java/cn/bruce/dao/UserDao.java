@@ -21,4 +21,6 @@ public interface UserDao {
     List<User> findByPage(User user, Pageable pageable);
 
     User getUserByName(String username);
+
+    User getUserByMobile(String mobile);
 }

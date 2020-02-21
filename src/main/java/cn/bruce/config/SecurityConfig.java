@@ -2,16 +2,15 @@ package cn.bruce.config;
 
 import cn.bruce.security.browser.authentication.MylibAuthenticationFailureHandler;
 import cn.bruce.security.browser.authentication.MylibAuthenticationSuccessHandler;
+import cn.bruce.security.core.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import cn.bruce.security.core.properties.SecurityProperties;
+import cn.bruce.security.core.validate.code.SmsCodeFilter;
 import cn.bruce.security.core.validate.code.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -27,6 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 注入登陆失败处理器
     @Autowired
     private MylibAuthenticationFailureHandler mylibAuthenticationFailureHandler;
+
+    @Autowired
+    private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
     // 记住我功能的用户信息存储数据源
 //    @Autowired
@@ -44,13 +46,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        // 图形验证码设置
         ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
         validateCodeFilter.setAuthenticationFailureHandler(mylibAuthenticationFailureHandler);
         validateCodeFilter.setSecurityProperties(securityProperties);
         validateCodeFilter.afterPropertiesSet();
+        // 短信验证码设置
+        SmsCodeFilter smsCodeFilter = new SmsCodeFilter();
+        smsCodeFilter.setAuthenticationFailureHandler(mylibAuthenticationFailureHandler);
+        smsCodeFilter.setSecurityProperties(securityProperties);
+        smsCodeFilter.afterPropertiesSet();
 
         http
-                .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class)  //将短信验证码过滤器加到过滤器链上去 （加到UsernamePasswordAuthenticationFilter之前）
+                .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)  // 将图形验证码过滤器加入到过滤器链上去
                 .formLogin()
                 .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form") // 设置登录请求提交的数据与 UsernamePasswordAuthenticationFilter 过滤器的映射
@@ -58,7 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(mylibAuthenticationFailureHandler) // 登陆失败处理器
                 .and()
                 .authorizeRequests()
-                .antMatchers("/authentication/require", securityProperties.getBrowser().getLoginPage(), "/code/*").permitAll()
+                .antMatchers("/authentication/require","/authentication/mobile", securityProperties.getBrowser().getLoginPage(), "/code/*").permitAll()
                 .antMatchers("/publicResources/", "/signup", "/about").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
@@ -67,14 +76,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .and()
                 .csrf().disable()
+                .apply(smsCodeAuthenticationSecurityConfig)
+                .and()
                 .httpBasic();
-        http
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/index")
-                //.logoutSuccessHandler(logoutSu)
-                .invalidateHttpSession(true)
-                // .addLogoutHandler(LogoutHandler)
-                .and();
     }
 }
