@@ -13,8 +13,15 @@ mylib:
 #    browser:
 #      loginPage: /demo-signIn.html
 # 登陆成功返回方式 ，转向或JSON形式返回
-    browser:
-        LoginType: REDIRECT
+#    browser:
+#        LoginType: REDIRECT
+# 图片验证码长度，默认为4位
+    code:
+      image:
+        height: 20
+        width: 20
+        url: /user,/user/*
+        length: 4
 
 
 

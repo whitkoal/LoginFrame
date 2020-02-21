@@ -38,10 +38,10 @@ public class SmsCodeFilter extends OncePerRequestFilter implements InitializingB
     @Override
     public void afterPropertiesSet() throws ServletException {
         super.afterPropertiesSet();
-//        String[] configUrls = securityProperties.getCode().getSms().getUrl().split(",");
-//        for (String url : configUrls) {
-//            urls.add(url);
-//        }
+        String[] configUrls = securityProperties.getCode().getSms().getUrl().split(",");
+        for (String url : configUrls) {
+            urls.add(url);
+        }
         urls.add("/authentication/mobile");
     }
 
