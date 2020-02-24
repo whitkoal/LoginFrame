@@ -15,13 +15,14 @@ public class imageCodeProcessor extends AbstractValidateCodeProcessor {
 
     /**
      * 发送图形验证码，将其写到响应中
+     *
      * @param request
      * @param validateCode
      * @throws Exception
      */
     @Override
     protected void send(ServletWebRequest request, ValidateCode validateCode) throws Exception {
-        ImageCode imageCode = (ImageCode)validateCode;
+        ImageCode imageCode = (ImageCode) validateCode;
         ImageIO.write(imageCode.getImage(), "JPEG", request.getResponse().getOutputStream());
     }
 }
