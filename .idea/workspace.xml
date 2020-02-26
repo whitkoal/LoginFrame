@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="49289fc7-d96c-4c06-9d38-6d7f7e73ade1" name="Default Changelist" comment="9">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mylib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mylib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aop/MainConfigOfAOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aop/MainConfigOfAOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aop/T/LogAspects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aop/T/LogAspects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/cn/bruce/controller/UserControllerTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/cn/bruce/dao/UserDaoImplTest.java" beforeDir="false" />
     </list>
@@ -89,12 +93,12 @@
       <recent name="cn.bruce" />
       <recent name="" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.bruce.security.core.validate.code" />
       <recent name="cn.bruce.security.core.properties" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\ideaCodeSet\mylib\src\test\resources" />
@@ -781,7 +785,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MylibApplication (1)">
+  <component name="RunManager" selected="JUnit.AOP_test">
     <configuration name="retest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.bruce.mylib.retest" />
       <module name="mylib" />
@@ -795,15 +799,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="other.test" />
+    <configuration name="AOP_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mylib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="other.*" />
+          <option name="PATTERN" value="aop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="aop" />
+      <option name="MAIN_CLASS_NAME" value="aop.AOP_test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AOP_test.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mylib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="aop" />
+      <option name="MAIN_CLASS_NAME" value="aop.AOP_test" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -819,22 +841,6 @@
       <option name="PACKAGE_NAME" value="cn.bruce.mylib" />
       <option name="MAIN_CLASS_NAME" value="cn.bruce.mylib.MylibApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDaoImplTest.findAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mylib" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.bruce.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.bruce.dao" />
-      <option name="MAIN_CLASS_NAME" value="cn.bruce.dao.UserDaoImplTest" />
-      <option name="METHOD_NAME" value="findAll" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -874,11 +880,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AOP_test" />
+        <item itemvalue="JUnit.AOP_test.test1" />
         <item itemvalue="Spring Boot.MylibApplication (1)" />
         <item itemvalue="Application.retest" />
         <item itemvalue="JUnit.MylibApplicationTests" />
-        <item itemvalue="Application.test" />
-        <item itemvalue="JUnit.UserDaoImplTest.findAll" />
       </list>
     </recent_temporary>
   </component>
@@ -938,7 +944,7 @@
       <workItem from="1582168738474" duration="15094000" />
       <workItem from="1582252642937" duration="16702000" />
       <workItem from="1582550756495" duration="293000" />
-      <workItem from="1582678840745" duration="297000" />
+      <workItem from="1582678840745" duration="4713000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1577195123778</created>
@@ -1115,7 +1121,21 @@
       <option name="project" value="LOCAL" />
       <updated>1582551087823</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="2.26">
+      <created>1582679412002</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1582679412002</updated>
+    </task>
+    <task id="LOCAL-00027" summary="2.26">
+      <created>1582681222869</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1582681222869</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1151,7 +1171,8 @@
     <MESSAGE value="11" />
     <MESSAGE value="12" />
     <MESSAGE value="2.24" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.24" />
+    <MESSAGE value="2.26" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.26" />
   </component>
   <component name="WindowStateProjectService">
     <state x="374" y="77" key="#Deployment" timestamp="1577970626828">
@@ -1190,10 +1211,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="269" key="#com.intellij.ws.actions.HttpClientConvertFromCurlDialog/0.0.1536.824@0.0.1536.824" timestamp="1577856210293" />
-    <state x="271" y="7" key="CommitChangelistDialog2" timestamp="1582551084492">
+    <state x="271" y="7" key="CommitChangelistDialog2" timestamp="1582681218395">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="271" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582551084492" />
+    <state x="271" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582681218395" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578994387230">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1214,22 +1235,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="739" y="123" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577193530788" />
-    <state width="954" height="274" key="GridCell.Tab.0.bottom" timestamp="1582295134981">
+    <state width="954" height="274" key="GridCell.Tab.0.bottom" timestamp="1582717003918">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="954" height="274" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582295134981" />
-    <state width="954" height="274" key="GridCell.Tab.0.center" timestamp="1582295134981">
+    <state width="954" height="274" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582717003918" />
+    <state width="954" height="274" key="GridCell.Tab.0.center" timestamp="1582717003918">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="954" height="274" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582295134981" />
-    <state width="954" height="274" key="GridCell.Tab.0.left" timestamp="1582295134981">
+    <state width="954" height="274" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582717003918" />
+    <state width="954" height="274" key="GridCell.Tab.0.left" timestamp="1582717003918">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="954" height="274" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582295134981" />
-    <state width="954" height="274" key="GridCell.Tab.0.right" timestamp="1582295134981">
+    <state width="954" height="274" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582717003918" />
+    <state width="954" height="274" key="GridCell.Tab.0.right" timestamp="1582717003918">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="954" height="274" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582295134981" />
+    <state width="954" height="274" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582717003918" />
     <state width="954" height="274" key="GridCell.Tab.1.bottom" timestamp="1582295134981">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
