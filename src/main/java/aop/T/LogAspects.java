@@ -15,12 +15,12 @@ public class LogAspects {
     @Before("pointCut()")
     public void logStart(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
-        System.out.println(joinPoint.getSignature().getName()+"除法开始...@Befor...参数表： "+ Arrays.asList(args));
+        System.out.println(joinPoint.getSignature().getName()+"除法开始...@Befor...参数表： "+ Arrays.asList(joinPoint.getArgs()));
     }
 
     @After("pointCut()")
     public void logEnd(JoinPoint joinPoint) {
-        System.out.println(joinPoint.getArgs()+"日志打印结束...");
+        System.out.println(joinPoint.getKind()+"日志打印结束...");
     }
 
     @AfterReturning("pointCut()")
