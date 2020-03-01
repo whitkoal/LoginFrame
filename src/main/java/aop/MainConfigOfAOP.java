@@ -11,7 +11,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class MainConfigOfAOP {
 
     @Bean
-
     public MathCalculator calculator(){
         return new MathCalculator();
     }
